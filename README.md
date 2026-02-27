@@ -1,5 +1,5 @@
-🏙️ CivicPulse – Crowdsourced Local Issue Tracker
-CivicPulse is a full-stack web application that empowers local citizens to report and track civic issues in their neighborhoods, such as potholes, streetlight outages, and sanitation problems. It also provides admins with a region-specific dashboard to view and address reports within their assigned areas.
+🏙️ CityCare – Crowdsourced Local Issue Tracker
+CityCare is a full-stack web application that empowers local citizens to report and track civic issues in their neighborhoods, such as potholes, streetlight outages, and sanitation problems. It also provides admins with a region-specific dashboard to view and address reports within their assigned areas.
 
 🔧 Tech Stack
 Frontend: React.js, Tailwind CSS, Lucide Icons
