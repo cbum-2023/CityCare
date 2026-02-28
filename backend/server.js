@@ -33,15 +33,15 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 5000;
 
 mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log("✅ Connected to MongoDB");
-    app.listen(PORT, () =>
-      console.log(`🚀 Server running on http://localhost:${PORT}`)
-    );
-  })
-  .catch((err) => {
-    console.error("❌ Failed to connect to MongoDB");
-    console.error(err.message);
-    process.exit(1);
-  });
+.connect(process.env.MONGO_URI)
+.then(() => {
+  console.log("✅ Connected to MongoDB");
+  app.listen(PORT, () =>
+    console.log(`🚀 Server running on http://localhost:${PORT}`)
+);
+})
+.catch((err) => {
+  console.error("❌ Failed to connect to MongoDB");
+  console.error(err.message);
+  process.exit(1);
+});
