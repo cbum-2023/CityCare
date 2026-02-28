@@ -2,7 +2,6 @@ const jwt = require("jsonwebtoken");
 
 const authMiddleware = (req, res, next) => {
   const authHeader = req.headers.authorization;
-
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
     return res.status(401).json({ message: "No token provided" });
   }
@@ -23,7 +22,7 @@ const requireRole = (role) => {
   return (req, res, next) => {
     if (req.user.role !== role) {
       return res
-        .status(403)
+        .status(405)
         .json({ message: "Access denied: Insufficient role" });
     }
     next();
