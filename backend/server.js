@@ -11,10 +11,13 @@ const adminRoutes = require("./routes/adminRoutes");
 const app = express();
 
 // IMPORTANT: CORS middleware must be the first one
-app.use(cors({
-  origin: "http://localhost:5173",
-  credentials: true
-}));
+// Allow all origins in dev to avoid localhost/127.0.0.1 mismatches.
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
