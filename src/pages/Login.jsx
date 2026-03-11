@@ -29,7 +29,14 @@ const Login = () => {
       login(token); // store in context/localStorage
 
       // ✅ Decode JWT to decide redirect
-      const decoded = JSON.parse(atob(token.split(".")[1]));
+      const decoded = JSON.parse(
+        decodeURIComponent(
+          atob(token.split(".")[1].replace(/-/g, "+").replace(/_/g, "/"))
+            .split("")
+            .map((c) => `%${c.charCodeAt(0).toString(16).padStart(2, "0")}`)
+            .join("")
+        )
+      );
       if (decoded.role === "admin") {
         navigate("/all-reports");
       } else {

@@ -63,34 +63,30 @@ const Home = () => {
                 icon: Construction,
                 title: "Road Issues",
                 desc: "Potholes, broken roads, debris",
-                bgFrom: "gray-100",
-                bgTo: "slate-100",
+                bgClass: "from-gray-100 to-slate-100",
               },
               {
                 icon: Lightbulb,
                 title: "Street Lighting",
                 desc: "Broken lights, dark areas",
-                bgFrom: "gray-100",
-                bgTo: "blue-50",
+                bgClass: "from-gray-100 to-blue-50",
               },
               {
                 icon: Trash2,
                 title: "Waste Management",
                 desc: "Garbage overflow, dumping",
-                bgFrom: "gray-100",
-                bgTo: "green-50",
+                bgClass: "from-gray-100 to-green-50",
               },
               {
                 icon: Droplets,
                 title: "Water Issues",
                 desc: "Leaks, broken pipes",
-                bgFrom: "gray-100",
-                bgTo: "cyan-50",
+                bgClass: "from-gray-100 to-cyan-50",
               },
             ].map((item, idx) => (
               <div
                 key={idx}
-                className={`bg-gradient-to-br from-${item.bgFrom} to-${item.bgTo} rounded-xl p-6 hover:shadow-xl transition-shadow duration-100 border border-gray-200 text-center`}
+                className={`bg-gradient-to-br ${item.bgClass} rounded-xl p-6 hover:shadow-xl transition-shadow duration-100 border border-gray-200 text-center`}
               >
                 <div className="bg-white w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 shadow">
                   <item.icon className="w-6 h-6 text-blue-700" />
