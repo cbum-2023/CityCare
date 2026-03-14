@@ -10,7 +10,7 @@ const AllReports = () => {
 
   const fetchReports = async () => {
     try {
-      const res = await axios.get("/api/admin/reports", {
+      const res = await axios.get("https://citycare-yu0u.onrender.com/api/admin/reports", {
         headers: { Authorization: `Bearer ${token}` },
         params: filterArea ? { area: filterArea } : {},
       });

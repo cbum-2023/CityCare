@@ -22,7 +22,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/api/auth/signup", form);
+      await axios.post("https://citycare-yu0u.onrender.com/api/auth/signup", form);
       alert("Signup successful! Please login.");
       navigate("/login");
     } catch (err) {

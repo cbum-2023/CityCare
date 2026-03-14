@@ -20,7 +20,7 @@ const Report = () => {
     if (image) formData.append("image", image);
 
     try {
-      const res = await axios.post("/api/user/report", formData, {
+      const res = await axios.post("https://citycare-yu0u.onrender.com/api/user/report", formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",

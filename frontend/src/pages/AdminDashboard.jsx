@@ -9,7 +9,7 @@ const AdminDashboard = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const res = await axios.get("/api/admin/dashboard-stats", {
+        const res = await axios.get("https://citycare-yu0u.onrender.com/api/admin/dashboard-stats", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setStats(res.data); // ✅ fixed
