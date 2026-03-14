@@ -10,7 +10,7 @@ const MyReports = () => {
   useEffect(() => {
     const fetchReports = async () => {
       try {
-        const res = await axios.get("/api/user/my-reports", {
+        const res = await axios.get("https://citycare-yu0u.onrender.com/api/user/my-reports", {
           headers: { Authorization: `Bearer ${token}` },
         });
         console.log("Fetched reports:", res.data.reports); // ✅ Inspect reports

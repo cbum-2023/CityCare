@@ -16,7 +16,7 @@ const UpdateReportStatus = () => {
 
     try {
       const res = await axios.put(
-        `/api/admin/report/${reportId}/status`,
+        `https://citycare-yu0u.onrender.com/api/admin/report/${reportId}/status`,
         { status },
         {
           headers: {

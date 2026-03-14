@@ -10,7 +10,7 @@ const UserProfile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-      const res = await axios.get("/api/user/profile", {
+      const res = await axios.get("https://citycare-yu0u.onrender.com/api/user/profile", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
