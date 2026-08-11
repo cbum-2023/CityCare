@@ -1,76 +1,77 @@
-🏙️ CityCare — Crowdsourced Local Issue Tracker
+# 🏙️ CityCare — Crowdsourced Local Issue Tracker
 
-CityCare is a full-stack civic issue reporting platform that allows citizens to report, track, and manage local problems such as potholes, damaged roads, streetlight failures, sanitation issues, and other community concerns.
+CityCare is a full-stack civic issue reporting platform that allows citizens to **report, track, and manage local problems** such as potholes, damaged roads, streetlight failures, sanitation issues, and other community concerns.
 
-The platform provides a role-based system where citizens can submit reports while administrators can view and manage issues relevant to their assigned geographical region.
+The platform provides a **role-based system** where citizens can submit reports while administrators can view and manage issues relevant to their assigned geographical region.
 
-🔗 Live Demo: https://city-care-chi.vercel.app/
-🔗 GitHub: https://github.com/cbum-2023/CityCare
+🔗 **Live Demo:** https://city-care-chi.vercel.app/  
+🔗 **GitHub:** https://github.com/cbum-2023/CityCare
 
-⸻
+---
 
-✨ Features
+## ✨ Features
 
-👤 Citizen Features
+### 👤 Citizen Features
 
-* 🔐 User registration and login
-* 📝 Report local civic issues
-* 📷 Upload images with issue reports
-* 📍 Add location/geographical information
-* 📊 View submitted reports
-* 🔎 Track previously submitted issues
-* 🔒 JWT-based authentication
+- 🔐 User registration and login
+- 📝 Report local civic issues
+- 📷 Upload images with issue reports
+- 📍 Add location/geographical information
+- 📊 View submitted reports
+- 🔎 Track previously submitted issues
+- 🔒 JWT-based authentication
 
-🛡️ Admin Features
+### 🛡️ Admin Features
 
-* 🔐 Role-based admin authentication
-* 📋 View reports submitted by users
-* 🌎 Filter reports based on assigned state/area
-* 🗂️ Access region-specific civic issues
-* 📊 Dedicated admin dashboard
-* 🔒 Protected admin routes
+- 🔐 Role-based admin authentication
+- 📋 View reports submitted by users
+- 🌎 Filter reports based on assigned state/area
+- 🗂️ Access region-specific civic issues
+- 📊 Dedicated admin dashboard
+- 🔒 Protected admin routes
 
-⚙️ Backend Features
+### ⚙️ Backend Features
 
-* RESTful API architecture
-* JWT authentication
-* Role-based authorization
-* Password hashing using bcrypt
-* MongoDB database integration
-* Image upload handling using Multer
-* Modular controllers, routes, models, and middleware
-* Environment-variable based configuration
+- RESTful API architecture
+- JWT authentication
+- Role-based authorization
+- Password hashing using bcrypt
+- MongoDB database integration
+- Image upload handling using Multer
+- Modular controllers, routes, models, and middleware
+- Environment-variable based configuration
 
-⸻
+---
 
-🛠️ Tech Stack
+## 🛠️ Tech Stack
 
-Frontend
+### Frontend
 
-* React.js
-* Vite
-* Tailwind CSS
-* React Router
-* Axios
-* Lucide React
-* JWT Decode
+- **React.js**
+- **Vite**
+- **Tailwind CSS**
+- **React Router**
+- **Axios**
+- **Lucide React**
+- **JWT Decode**
 
-Backend
+### Backend
 
-* Node.js
-* Express.js
-* MongoDB
-* Mongoose
-* JWT
-* bcrypt.js
-* Multer
-* CORS
-* dotenv
+- **Node.js**
+- **Express.js**
+- **MongoDB**
+- **Mongoose**
+- **JWT**
+- **bcrypt.js**
+- **Multer**
+- **CORS**
+- **dotenv**
 
-⸻
+---
 
-🏗️ Project Architecture
+## 🏗️ Project Architecture
 
+```text
 CityCare/
 │
 ├── frontend/
@@ -96,11 +97,13 @@ CityCare/
 │   └── .env
 │
 └── README.md
+```
 
-⸻
+---
 
-🔄 Application Flow
+## 🔄 Application Flow
 
+```text
                 ┌──────────────────┐
                 │      Citizen     │
                 └────────┬─────────┘
@@ -132,174 +135,210 @@ CityCare/
                 │      Admin       │
                 │     Dashboard    │
                 └──────────────────┘
+```
 
-⸻
+---
 
-🔐 Authentication & Authorization
+## 🔐 Authentication & Authorization
 
-CityCare uses JWT-based authentication to secure user sessions and protected API routes.
+CityCare uses **JWT-based authentication** to secure user sessions and protected API routes.
 
 The application supports two primary roles:
 
-Role	Access
-👤 User	Submit and view personal reports
-🛡️ Admin	Access and manage region-specific reports
+| Role | Access |
+|------|--------|
+| 👤 User | Submit and view personal reports |
+| 🛡️ Admin | Access and manage region-specific reports |
 
-Passwords are securely hashed using bcrypt.js, while protected routes use JWT-based authorization.
+Passwords are securely hashed using **bcrypt.js**, while protected routes use JWT-based authorization.
 
-⸻
+---
 
-📍 Regional Filtering
+## 📍 Regional Filtering
 
-A key feature of CityCare is location-based report filtering.
+A key feature of CityCare is **location-based report filtering**.
 
 User accounts and reports contain geographical information such as:
 
-* State
-* Area/location
+- State
+- Area/location
 
 Administrators can use this information to access reports relevant to their assigned region.
 
 This helps prevent administrators from being overwhelmed by unrelated reports from other locations.
 
-⸻
+---
 
-📷 Image Uploads
+## 📷 Image Uploads
 
 Users can attach images while reporting civic problems.
 
-The backend handles uploaded files using Multer, allowing issue reports to contain visual evidence of problems such as:
+The backend handles uploaded files using **Multer**, allowing issue reports to contain visual evidence of problems such as:
 
-* 🛣️ Potholes
-* 💡 Broken streetlights
-* 🗑️ Garbage accumulation
-* 🚰 Water-related issues
-* 🏗️ Damaged public infrastructure
+- 🛣️ Potholes
+- 💡 Broken streetlights
+- 🗑️ Garbage accumulation
+- 🚰 Water-related issues
+- 🏗️ Damaged public infrastructure
 
-⸻
+---
 
-🚀 Getting Started
+## 🚀 Getting Started
 
-1. Clone the Repository
+### 1. Clone the Repository
 
+```bash
 git clone https://github.com/cbum-2023/CityCare.git
+
 cd CityCare
+```
 
-⸻
+---
 
-🖥️ Frontend Setup
+# 🖥️ Frontend Setup
 
 Navigate to the frontend directory:
 
+```bash
 cd frontend
+```
 
 Install dependencies:
 
+```bash
 npm install
+```
 
 Start the development server:
 
+```bash
 npm run dev
+```
 
 The Vite development server will provide a local URL, usually:
 
+```text
 http://localhost:5173
+```
 
-Production Build
+### Production Build
 
+```bash
 npm run build
+```
 
-⸻
+---
 
-⚙️ Backend Setup
+# ⚙️ Backend Setup
 
 Open another terminal and navigate to the backend:
 
+```bash
 cd backend
+```
 
 Install dependencies:
 
+```bash
 npm install
+```
 
-Create a .env file:
+Create a `.env` file:
 
+```env
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
+```
 
 Start the backend:
 
+```bash
 npm run dev
+```
 
 For production:
 
+```bash
 npm start
+```
 
-⸻
+---
 
-🌐 Deployment
+## 🌐 Deployment
 
-The frontend is deployed using Vercel.
+The frontend is deployed using **Vercel**.
 
-🔗 Live Application:
+🔗 **Live Application:**  
 https://city-care-chi.vercel.app/
 
 The backend can be deployed independently using platforms such as Render or Railway.
 
-Make sure the frontend API configuration points to the deployed backend URL when running the production application.
+> Make sure the frontend API configuration points to the deployed backend URL when running the production application.
 
-⸻
+---
 
-🧪 Development
+## 🧪 Development
 
-Frontend
+### Frontend
 
 Run the development server:
 
+```bash
 npm run dev
+```
 
 Run ESLint:
 
+```bash
 npm run lint
+```
 
 Create production build:
 
+```bash
 npm run build
+```
 
-Backend
+### Backend
 
 Run with Nodemon:
 
+```bash
 npm run dev
+```
 
 Run normally:
 
+```bash
 npm start
+```
 
-⸻
+---
 
-🔮 Future Improvements
+## 🔮 Future Improvements
 
 Some potential improvements for future versions include:
 
-* 📊 Advanced issue analytics
-* 🔄 Issue status tracking
-* 📩 Admin-user communication
-* 🔔 Email and in-app notifications
-* ☁️ Cloud-based image storage using Cloudinary/Firebase Storage
-* 🗺️ Interactive map-based issue visualization
-* 📱 Mobile-responsive improvements
-* 🔎 Advanced issue search and filtering
-* 📈 Admin statistics and performance dashboards
+- 📊 Advanced issue analytics
+- 🔄 Issue status tracking
+- 📩 Admin-user communication
+- 🔔 Email and in-app notifications
+- ☁️ Cloud-based image storage using Cloudinary/Firebase Storage
+- 🗺️ Interactive map-based issue visualization
+- 📱 Mobile-responsive improvements
+- 🔎 Advanced issue search and filtering
+- 📈 Admin statistics and performance dashboards
 
-⸻
+---
 
-🎯 Why CityCare?
+## 🎯 Why CityCare?
 
 Traditional civic complaint systems can make it difficult for citizens to report local problems and track their progress.
 
 CityCare aims to provide a simple digital platform where:
 
+```text
 Citizen
    ↓
 Reports Problem
@@ -309,48 +348,49 @@ Issue Stored & Categorized
 Relevant Admin Finds Issue
    ↓
 Issue Can Be Addressed
+```
 
-This creates a more organized way of connecting citizens with local authorities and managing community issues.
+This creates a more organized way of connecting **citizens with local authorities** and managing community issues.
 
-⸻
+---
 
-📚 Key Concepts Demonstrated
+## 📚 Key Concepts Demonstrated
 
 This project demonstrates practical experience with:
 
-* Full-stack web development
-* MERN stack
-* REST API development
-* JWT authentication
-* Role-based authorization
-* Password hashing
-* MongoDB & Mongoose
-* File uploads
-* React routing
-* API integration using Axios
-* Middleware architecture
-* Modular backend architecture
-* Geographic filtering
-* Frontend-backend integration
-* Deployment
+- Full-stack web development
+- MERN stack
+- REST API development
+- JWT authentication
+- Role-based authorization
+- Password hashing
+- MongoDB & Mongoose
+- File uploads
+- React routing
+- API integration using Axios
+- Middleware architecture
+- Modular backend architecture
+- Geographic filtering
+- Frontend-backend integration
+- Deployment
 
-⸻
+---
 
-👨‍💻 Author
+## 👨‍💻 Author
 
-Shivam Sharma
+**Shivam Sharma**
 
 B.Tech — IIIT Ranchi
 
-Connect
+### Connect
 
-* GitHub: https://github.com/cbum-2023
-* Project Repository: https://github.com/cbum-2023/CityCare
+- GitHub: https://github.com/cbum-2023
+- Project Repository: https://github.com/cbum-2023/CityCare
 
-⸻
+---
 
-⭐ Support
+## ⭐ Support
 
 If you find this project useful, consider giving the repository a ⭐ on GitHub!
 
-CityCare — Making Local Issues Visible.
+**CityCare — Making Local Issues Visible.**
