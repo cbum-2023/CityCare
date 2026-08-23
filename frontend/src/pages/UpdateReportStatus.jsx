@@ -1,6 +1,16 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
+import {
+  Edit,
+  CheckCircle,
+  XCircle,
+  AlertCircle,
+  Clock,
+  Shield,
+  FileText,
+  Info,
+} from "lucide-react";
 
 const UpdateReportStatus = () => {
   const { token } = useContext(AuthContext);
@@ -16,7 +26,7 @@ const UpdateReportStatus = () => {
 
     try {
       const res = await axios.put(
-        `https://citycare-yu0u.onrender.com/api/admin/report/${reportId}/status`,
+        `/api/admin/report/${reportId}/status`,
         { status },
         {
           headers: {
@@ -25,209 +35,306 @@ const UpdateReportStatus = () => {
         }
       );
 
-      setMessage(res.data.message);
+      setMessage(res.data.message || "Status updated successfully");
+      setReportId("");
+      setStatus("pending");
     } catch (err) {
-      setError(err.response?.data?.message || "Error updating status");
+      setError(err.response?.data?.message || "Error updating status. Please verify the Report ID and try again.");
     }
   };
 
+  const statusOptions = [
+    {
+      value: "pending",
+      label: "Pending Review",
+      icon: AlertCircle,
+      color: "red",
+      emoji: "🔴",
+      description: "Issue awaiting administrative review",
+    },
+    {
+      value: "in-progress",
+      label: "In Progress",
+      icon: Clock,
+      color: "yellow",
+      emoji: "🟡",
+      description: "Work has begun on this issue",
+    },
+    {
+      value: "resolved",
+      label: "Resolved",
+      icon: CheckCircle,
+      color: "green",
+      emoji: "🟢",
+      description: "Issue has been successfully resolved",
+    },
+  ];
+
   return (
-    <div className="min-h-screen bg-slate-50 py-8">
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header Section */}
-        <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-            <svg
-              className="w-8 h-8 text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-              />
-            </svg>
-          </div>
-          <h2 className="text-3xl font-bold text-slate-800 mb-2">
-            Update Report Status
-          </h2>
-          <p className="text-slate-600">
-            Manage and update the status of submitted reports
-          </p>
-        </div>
-
-        {/* Main Form Card */}
-        <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
-          <div className="px-6 py-4 bg-slate-50 border-b border-slate-200">
-            <h3 className="text-lg font-semibold text-slate-800 flex items-center gap-2">
-              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-              Status Update Form
-            </h3>
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-gray-100 py-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Page Header */}
+        <div className="mb-8">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-700 rounded-lg flex items-center justify-center shadow-md">
+              <Edit className="w-7 h-7 text-white" />
+            </div>
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900">
+                Update Report Status
+              </h1>
+              <p className="text-gray-600 text-sm">
+                Administrative control panel for issue management
+              </p>
+            </div>
           </div>
 
-          <div className="p-6">
-            <form onSubmit={handleUpdate} className="space-y-6">
-              {/* Report ID Field */}
-              <div className="space-y-2">
-                <label className="block text-sm font-medium text-slate-700">
-                  Report ID
-                  <span className="text-red-500 ml-1">*</span>
-                </label>
-                <input
-                  type="text"
-                  value={reportId}
-                  onChange={(e) => setReportId(e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 text-slate-900 placeholder-slate-400"
-                  placeholder="Enter the report ID (e.g., 507f1f77bcf86cd799439011)"
-                  required
-                />
-                <p className="text-xs text-slate-500">
-                  You can find the Report ID in the All Reports section
+          {/* Info Banner */}
+          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+            <div className="flex items-start gap-3">
+              <Shield className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+              <div className="text-sm text-blue-900">
+                <p className="font-semibold mb-1">Administrator Access Required</p>
+                <p className="text-blue-700">
+                  This panel allows authorized personnel to update the status of citizen-reported issues. 
+                  All changes are logged and tracked for accountability.
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
 
-              {/* Status Selection Field */}
-              <div className="space-y-2">
-                <label className="block text-sm font-medium text-slate-700">
-                  New Status
-                </label>
-                <div className="relative">
-                  <select
-                    value={status}
-                    onChange={(e) => setStatus(e.target.value)}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 text-slate-900 appearance-none bg-white"
+        <div className="grid lg:grid-cols-3 gap-6">
+          {/* Main Form */}
+          <div className="lg:col-span-2">
+            <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+              {/* Form Header */}
+              <div className="bg-gradient-to-r from-purple-600 to-purple-700 px-6 py-4">
+                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                  <FileText className="w-5 h-5" />
+                  Status Update Form
+                </h2>
+                <p className="text-purple-100 text-sm">Update issue resolution status</p>
+              </div>
+
+              {/* Form Body */}
+              <form onSubmit={handleUpdate} className="p-6 space-y-6">
+                {/* Report ID Field */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Report ID <span className="text-red-500">*</span>
+                  </label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <FileText className="h-5 w-5 text-gray-400" />
+                    </div>
+                    <input
+                      type="text"
+                      value={reportId}
+                      onChange={(e) => setReportId(e.target.value)}
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all text-gray-900 placeholder-gray-400"
+                      placeholder="Enter Report ID (e.g., 507f1f77bcf86cd799439011)"
+                      required
+                    />
+                  </div>
+                  <p className="text-xs text-gray-500 mt-2 flex items-center gap-1">
+                    <Info className="w-3 h-3" />
+                    You can find the Report ID in the "All Reports" section
+                  </p>
+                </div>
+
+                {/* Status Selection Field */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-3">
+                    New Status <span className="text-red-500">*</span>
+                  </label>
+                  <div className="space-y-3">
+                    {statusOptions.map((option) => {
+                      const IconComponent = option.icon;
+                      return (
+                        <label
+                          key={option.value}
+                          className={`flex items-center gap-3 p-4 border-2 rounded-lg cursor-pointer transition-all ${
+                            status === option.value
+                              ? `border-${option.color}-500 bg-${option.color}-50`
+                              : "border-gray-200 hover:border-gray-300 bg-white"
+                          }`}
+                        >
+                          <input
+                            type="radio"
+                            name="status"
+                            value={option.value}
+                            checked={status === option.value}
+                            onChange={(e) => setStatus(e.target.value)}
+                            className="w-4 h-4 text-purple-600 focus:ring-purple-500"
+                          />
+                          <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
+                            status === option.value
+                              ? `bg-${option.color}-100`
+                              : "bg-gray-100"
+                          }`}>
+                            <IconComponent className={`w-5 h-5 ${
+                              status === option.value
+                                ? `text-${option.color}-600`
+                                : "text-gray-400"
+                            }`} />
+                          </div>
+                          <div className="flex-1">
+                            <div className="font-semibold text-gray-900 flex items-center gap-2">
+                              <span>{option.emoji}</span>
+                              {option.label}
+                            </div>
+                            <p className="text-xs text-gray-600">{option.description}</p>
+                          </div>
+                        </label>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Submit Button */}
+                <div className="pt-4">
+                  <button
+                    type="submit"
+                    className="w-full bg-purple-600 hover:bg-purple-700 active:bg-purple-800 text-white font-semibold py-3.5 px-6 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 shadow-md hover:shadow-lg flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    disabled={!reportId.trim()}
                   >
-                    <option value="pending">🔴 Pending</option>
-                    <option value="in-progress">🟡 In Progress</option>
-                    <option value="resolved">🟢 Resolved</option>
-                  </select>
-                  <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
-                    <svg
-                      className="w-5 h-5 text-slate-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
+                    <CheckCircle className="w-5 h-5" />
+                    Update Report Status
+                  </button>
+                  {!reportId.trim() && (
+                    <p className="text-xs text-gray-500 text-center mt-2">
+                      Please enter a Report ID to continue
+                    </p>
+                  )}
+                </div>
+              </form>
+            </div>
+
+            {/* Success Message */}
+            {message && (
+              <div className="mt-6 bg-green-50 border-l-4 border-green-500 rounded-r-lg p-4 shadow-md">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <CheckCircle className="w-6 h-6 text-green-600" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-sm font-bold text-green-900 mb-1">
+                      Status Updated Successfully
+                    </h4>
+                    <p className="text-sm text-green-700">{message}</p>
+                    <p className="text-xs text-green-600 mt-2">
+                      Citizens will be notified of this status change.
+                    </p>
                   </div>
                 </div>
               </div>
+            )}
 
-              {/* Submit Button */}
-              <div className="pt-4">
-                <button
-                  type="submit"
-                  className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200 font-medium shadow-sm disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                  disabled={!reportId.trim()}
-                >
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
-                    />
-                  </svg>
-                  Update Status
-                </button>
+            {/* Error Message */}
+            {error && (
+              <div className="mt-6 bg-red-50 border-l-4 border-red-500 rounded-r-lg p-4 shadow-md">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <XCircle className="w-6 h-6 text-red-600" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-sm font-bold text-red-900 mb-1">
+                      Update Failed
+                    </h4>
+                    <p className="text-sm text-red-700">{error}</p>
+                    <p className="text-xs text-red-600 mt-2">
+                      Please verify the Report ID and try again.
+                    </p>
+                  </div>
+                </div>
               </div>
-            </form>
+            )}
           </div>
-        </div>
 
-        {/* Success Message */}
-        {message && (
-          <div className="mt-6 bg-green-50 border border-green-200 rounded-lg p-4">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <svg
-                  className="w-5 h-5 text-green-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+          {/* Sidebar - Status Guide */}
+          <div className="lg:col-span-1 space-y-6">
+            {/* Status Reference Guide */}
+            <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+              <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <Info className="w-5 h-5 text-purple-600" />
+                Status Reference Guide
+              </h3>
+              <div className="space-y-4">
+                {statusOptions.map((option) => {
+                  const IconComponent = option.icon;
+                  return (
+                    <div
+                      key={option.value}
+                      className={`p-4 rounded-lg border-l-4 bg-${option.color}-50 border-${option.color}-500`}
+                    >
+                      <div className="flex items-start gap-3">
+                        <div className={`w-8 h-8 bg-${option.color}-100 rounded-lg flex items-center justify-center flex-shrink-0`}>
+                          <IconComponent className={`w-4 h-4 text-${option.color}-600`} />
+                        </div>
+                        <div>
+                          <div className={`font-bold text-${option.color}-900 text-sm mb-1 flex items-center gap-1`}>
+                            <span>{option.emoji}</span>
+                            {option.label}
+                          </div>
+                          <p className={`text-xs text-${option.color}-700 leading-relaxed`}>
+                            {option.description}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Best Practices */}
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl border border-blue-200 p-6">
+              <h3 className="font-bold text-gray-900 mb-4">Best Practices</h3>
+              <ul className="space-y-3 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <div className="w-5 h-5 rounded-full bg-blue-200 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-blue-700 text-xs font-bold">1</span>
+                  </div>
+                  <span>Review the report details before updating status</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-5 h-5 rounded-full bg-blue-200 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-blue-700 text-xs font-bold">2</span>
+                  </div>
+                  <span>Update status as work progresses to keep citizens informed</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-5 h-5 rounded-full bg-blue-200 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-blue-700 text-xs font-bold">3</span>
+                  </div>
+                  <span>Mark as "Resolved" only when issue is completely fixed</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-5 h-5 rounded-full bg-blue-200 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-blue-700 text-xs font-bold">4</span>
+                  </div>
+                  <span>All status changes are logged for accountability</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Quick Stats */}
+            <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+              <h3 className="font-bold text-gray-900 mb-4">Quick Actions</h3>
+              <div className="space-y-3">
+                <a
+                  href="/all-reports"
+                  className="block w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-2.5 px-4 rounded-lg transition-all duration-200 text-sm text-center"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-              </div>
-              <div>
-                <h4 className="text-sm font-medium text-green-800">Success!</h4>
-                <p className="text-sm text-green-700 mt-1">{message}</p>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Error Message */}
-        {error && (
-          <div className="mt-6 bg-red-50 border border-red-200 rounded-lg p-4">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <svg
-                  className="w-5 h-5 text-red-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+                  View All Reports
+                </a>
+                <a
+                  href="/admin-dashboard"
+                  className="block w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-2.5 px-4 rounded-lg transition-all duration-200 text-sm text-center"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </div>
-              <div>
-                <h4 className="text-sm font-medium text-red-800">Error</h4>
-                <p className="text-sm text-red-700 mt-1">{error}</p>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Status Guide */}
-        <div className="mt-8 bg-white rounded-xl shadow-sm border border-slate-200 p-6">
-          <h4 className="text-lg font-semibold text-slate-800 mb-4">
-            Status Guide
-          </h4>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="flex items-center gap-3 p-3 bg-red-50 rounded-lg">
-              <span className="text-lg">🔴</span>
-              <div>
-                <p className="font-medium text-red-800">Pending</p>
-                <p className="text-xs text-red-600">Awaiting review</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-3 p-3 bg-yellow-50 rounded-lg">
-              <span className="text-lg">🟡</span>
-              <div>
-                <p className="font-medium text-yellow-800">In Progress</p>
-                <p className="text-xs text-yellow-600">Being worked on</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-3 p-3 bg-green-50 rounded-lg">
-              <span className="text-lg">🟢</span>
-              <div>
-                <p className="font-medium text-green-800">Resolved</p>
-                <p className="text-xs text-green-600">Issue fixed</p>
+                  Go to Dashboard
+                </a>
               </div>
             </div>
           </div>

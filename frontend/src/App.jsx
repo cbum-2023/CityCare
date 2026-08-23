@@ -1,9 +1,8 @@
-  import React from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Report from "./pages/Report";
@@ -13,29 +12,25 @@ import UserProfile from "./pages/UserProfile";
 import UpdateReportStatus from "./pages/UpdateReportStatus";
 import AdminDashboard from "./pages/AdminDashboard";
 
+
+
 const App = () => {
   return (
     <Router>
-      <div className="min-h-screen flex flex-col">
-        <Navbar />
-        <div className="flex-1">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/report" element={<Report />} />
-            <Route path="/my-reports" element={<MyReports />} />
-            <Route path="/all-reports" element={<AllReports />} />
-            <Route path="/profile" element={<UserProfile />} />
-            <Route path="/admin/update-status" element={<UpdateReportStatus />} />
-            <Route path="/admin-dashboard" element={<AdminDashboard />} />
-          </Routes>
-        </div>
-        <Footer />
-      </div>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/report" element={<Report />} />
+        <Route path="/my-reports" element={<MyReports />} />
+        <Route path="/all-reports" element={<AllReports />} />
+        <Route path="/profile" element={<UserProfile />} />
+        <Route path="/admin/update-status" element={<UpdateReportStatus />} />
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
+      </Routes>
     </Router>
   );
 };
-
 
 export default App;

@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 import {
   ArrowRight,
   FileText,
@@ -10,217 +12,381 @@ import {
   MapPin,
   Star,
   Droplets,
+  Shield,
+  Users,
+  TrendingUp,
+  Phone,
+  Mail,
+  Clock,
 } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
+
+  if (user) {
+    // redirect to the same profile route used elsewhere (Navbar uses "/profile")
+    return <Navigate to="/profile" replace />;
+  }
 
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-800">
-      {/* Hero Section with Optimized Background */}
+    <div className="min-h-screen bg-white text-gray-900">
+      {/* Top Info Bar */}
+      <div className="bg-slate-800 text-gray-300 py-2 px-4 text-sm">
+        <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+          <div className="flex items-center gap-4">
+            <span className="flex items-center gap-2">
+              <Phone className="w-3 h-3" />
+              1800-XXX-XXXX
+            </span>
+            <span className="flex items-center gap-2">
+              <Mail className="w-3 h-3" />
+              support@nagarikawaz.gov.in
+            </span>
+          </div>
+          <span className="flex items-center gap-2">
+            <Clock className="w-3 h-3" />
+            Mon-Sat: 9:00 AM - 6:00 PM
+          </span>
+        </div>
+      </div>
+
+      {/* Header Navigation removed — using global Navbar component */}
+
+      {/* Hero Section */}
       <section
-        className="px-4 py-20 sm:py-28 text-center relative overflow-hidden"
+        id="home"
+        className="relative px-4 py-24 md:py-32"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(0,0,0,0.7), rgba(31,41,55,0.6)),
-            url('https://images.unsplash.com/photo-1592639296346-560c37a0f711?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')
+            linear-gradient(to right, rgba(15, 23, 42, 0.92), rgba(30, 58, 138, 0.85)),
+            url('https://images.unsplash.com/photo-1494522358652-f30e61a60313?q=80&w=2070&auto=format&fit=crop')
           `,
           backgroundSize: "cover",
           backgroundPosition: "center",
+          backgroundAttachment: "fixed",
         }}
       >
-        <div className="max-w-6xl mx-auto relative z-10">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
-            Raise your voice for a better neighbourhood 🇮🇳
-          </h1>
-          <p className="text-xl sm:text-2xl text-gray-100 mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
-            Report civic issues. Get them tracked. Build better cities together.
-          </p>
-          <button
-            onClick={() => navigate("/login")}
-            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center gap-3"
-          >
-            Report an Issue
-            <ArrowRight className="w-5 h-5" />
-          </button>
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <div className="text-white space-y-6">
+            <div className="inline-block bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-full mb-2">
+              Government of India Initiative
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              Empowering Citizens,<br />Building Better Cities
+            </h1>
+            <p className="text-lg md:text-xl text-gray-200 leading-relaxed">
+              A transparent platform for reporting and tracking civic issues across India. 
+              Your voice matters in building the nation we envision.
+            </p>
+            <div className="flex flex-wrap gap-4 pt-4">
+              <button
+                onClick={() => navigate("/login")}
+                className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-md transition inline-flex items-center gap-2 shadow-lg"
+              >
+                Report an Issue
+                <ArrowRight className="w-5 h-5" />
+              </button>
+              <button className="bg-white text-gray-900 hover:bg-gray-100 font-semibold py-3 px-8 rounded-md transition border-2 border-white">
+                View Live Issues
+              </button>
+            </div>
+          </div>
+          <div className="hidden md:block">
+            <div className="bg-white rounded-lg shadow-2xl p-6 space-y-4">
+              <h3 className="text-xl font-bold text-gray-900 border-b pb-3">Quick Stats</h3>
+              <div className="space-y-3">
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-700">Issues Reported</span>
+                  <span className="font-bold text-2xl text-blue-600">12,547</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-700">Issues Resolved</span>
+                  <span className="font-bold text-2xl text-green-600">9,832</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-700">Active Users</span>
+                  <span className="font-bold text-2xl text-orange-600">45,231</span>
+                </div>
+              </div>
+              <div className="pt-3 border-t">
+                <div className="text-sm text-gray-600 mb-2">Resolution Rate</div>
+                <div className="w-full bg-gray-200 rounded-full h-3">
+                  <div className="bg-green-500 h-3 rounded-full" style={{width: '78%'}}></div>
+                </div>
+                <div className="text-right text-sm font-semibold text-gray-700 mt-1">78%</div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Issues Section */}
-      <section className="px-4 py-20 bg-gradient-to-b from-white via-gray-50 to-white">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-4">
-            Issues We Help Solve
-          </h2>
-          <p className="text-gray-600 text-lg text-center mb-12 max-w-2xl mx-auto">
-            From broken infrastructure to civic amenities, report any issue
-            affecting your community.
-          </p>
+      {/* Trust Indicators */}
+      <section className="py-8 bg-gray-50 border-y border-gray-200">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-gray-800">500+</div>
+              <div className="text-sm text-gray-600">Municipalities</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-gray-800">28</div>
+              <div className="text-sm text-gray-600">States Covered</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-gray-800">50K+</div>
+              <div className="text-sm text-gray-600">Active Citizens</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-gray-800">80%</div>
+              <div className="text-sm text-gray-600">Resolution Rate</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Issue Categories */}
+      <section id="issues" className="px-4 py-20 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Report Civic Issues
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Select from various categories of civic problems. Every report is tracked 
+              and forwarded to relevant authorities for swift action.
+            </p>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
                 icon: Construction,
-                title: "Road Issues",
-                desc: "Potholes, broken roads, debris",
-                bgClass: "from-gray-100 to-slate-100",
+                title: "Roads & Infrastructure",
+                desc: "Potholes, broken roads, footpaths",
+                color: "blue",
+                issues: 3247
               },
               {
                 icon: Lightbulb,
                 title: "Street Lighting",
-                desc: "Broken lights, dark areas",
-                bgClass: "from-gray-100 to-blue-50",
+                desc: "Non-functional lights, dark areas",
+                color: "yellow",
+                issues: 1823
               },
               {
                 icon: Trash2,
                 title: "Waste Management",
-                desc: "Garbage overflow, dumping",
-                bgClass: "from-gray-100 to-green-50",
+                desc: "Garbage overflow, illegal dumping",
+                color: "green",
+                issues: 2156
               },
               {
                 icon: Droplets,
-                title: "Water Issues",
-                desc: "Leaks, broken pipes",
-                bgClass: "from-gray-100 to-cyan-50",
+                title: "Water & Drainage",
+                desc: "Leaks, blockages, water supply",
+                color: "cyan",
+                issues: 1891
               },
             ].map((item, idx) => (
               <div
                 key={idx}
-                className={`bg-gradient-to-br ${item.bgClass} rounded-xl p-6 hover:shadow-xl transition-shadow duration-100 border border-gray-200 text-center`}
+                className="group bg-white rounded-lg p-6 border-2 border-gray-200 hover:border-blue-500 hover:shadow-lg transition-all duration-300 cursor-pointer"
               >
-                <div className="bg-white w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 shadow">
-                  <item.icon className="w-6 h-6 text-blue-700" />
+                <div className={`bg-${item.color}-50 w-14 h-14 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                  <item.icon className={`w-7 h-7 text-${item.color}-600`} />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   {item.title}
                 </h3>
-                <p className="text-gray-500 text-sm">{item.desc}</p>
+                <p className="text-gray-600 text-sm mb-3 leading-relaxed">{item.desc}</p>
+                <div className="text-xs text-gray-500 font-medium">
+                  {item.issues.toLocaleString()} issues reported
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="px-4 py-20 bg-gradient-to-br from-blue-50 to-white border-y border-gray-200">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
-          {[
-            {
-              icon: FileText,
-              num: "500+",
-              label: "Issues Reported",
-              bg: "bg-green-100",
-            },
-            {
-              icon: MapPin,
-              num: "120",
-              label: "Towns Covered",
-              bg: "bg-blue-100",
-            },
-            {
-              icon: Star,
-              num: "4.8★",
-              label: "User Satisfaction",
-              bg: "bg-yellow-100",
-            },
-          ].map((item, idx) => (
-            <div key={idx} className="p-6 rounded-xl shadow bg-white border">
-              <div
-                className={`${item.bg} w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4`}
-              >
-                <item.icon className="w-8 h-8 text-gray-700" />
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-2">
-                {item.num}
-              </h3>
-              <p className="text-gray-600 font-medium">{item.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* How It Works */}
-      <section className="px-4 py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
-            How It Works
-          </h2>
-        </div>
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            {
-              icon: FileText,
-              step: "1",
-              title: "Report the Issue",
-              content:
-                "Snap a photo, add location details, and describe the civic problem.",
-            },
-            {
-              icon: Eye,
-              step: "2",
-              title: "Verified by Community",
-              content: "Local members review and verify reported issues.",
-            },
-            {
-              icon: CheckCircle,
-              step: "3",
-              title: "Marked as Resolved",
-              content: "Track progress and mark it resolved when done.",
-            },
-          ].map((item, idx) => (
-            <div
-              key={idx}
-              className="bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-shadow duration-300 text-center border border-gray-200"
-            >
-              <div className="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <item.icon className="w-10 h-10 text-blue-600" />
+      <section className="px-4 py-20 bg-gradient-to-b from-slate-50 to-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Simple 3-Step Process
+            </h2>
+            <p className="text-gray-600 text-lg">
+              Transparent, trackable, and efficient civic issue management
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+            {/* Connecting Line */}
+            <div className="hidden md:block absolute top-24 left-1/2 transform -translate-x-1/2 w-2/3 h-0.5 bg-gray-300"></div>
+            
+            {[
+              {
+                icon: FileText,
+                step: "01",
+                title: "Submit Report",
+                content:
+                  "Upload photos, add precise location, and describe the issue with relevant details. All submissions are time-stamped and geo-tagged.",
+              },
+              {
+                icon: Eye,
+                step: "02",
+                title: "Verification & Review",
+                content: "Community members and moderators verify the report. Authorities are notified based on issue severity and category.",
+              },
+              {
+                icon: CheckCircle,
+                step: "03",
+                title: "Track & Resolve",
+                content: "Monitor real-time updates on your issue. Get notifications when work begins and when it's marked as resolved.",
+              },
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                className="relative bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200"
+              >
+                <div className="absolute -top-4 left-8 bg-blue-600 text-white rounded-lg px-4 py-2 font-bold text-sm shadow-md">
+                  Step {item.step}
+                </div>
+                <div className="bg-gradient-to-br from-blue-50 to-blue-100 w-16 h-16 rounded-xl flex items-center justify-center mb-6 mt-4">
+                  <item.icon className="w-8 h-8 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">{item.content}</p>
               </div>
-              <div className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-4 font-bold">
-                {item.step}
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                {item.title}
-              </h3>
-              <p className="text-gray-700 leading-relaxed">{item.content}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Footer CTA */}
-      <section
-        className="px-4 py-20 text-center relative overflow-hidden"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(31,41,55,0.95), rgba(31,41,55,0.85)),
-            url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=compress&cs=tinysrgb&w=1920')
-          `,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="max-w-4xl mx-auto relative z-10">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 drop-shadow-lg">
-            Ready to make a difference?
+      {/* Why Choose Us */}
+      <section id="about" className="px-4 py-20 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Why CityCare?
+            </h2>
+            <p className="text-gray-600 text-lg">
+              Built with transparency, security, and citizen empowerment at its core
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Shield,
+                title: "Secure & Verified",
+                desc: "All reports are verified and your data is protected with government-grade security protocols."
+              },
+              {
+                icon: Users,
+                title: "Community Driven",
+                desc: "Powered by active citizens who care about their neighborhoods and municipal development."
+              },
+              {
+                icon: TrendingUp,
+                title: "Measurable Impact",
+                desc: "Track resolution rates, response times, and see the real difference your reports make."
+              },
+            ].map((item, idx) => (
+              <div key={idx} className="text-center p-6">
+                <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <item.icon className="w-8 h-8 text-orange-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="px-4 py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Be the Change Your City Needs
           </h2>
-          <p className="text-xl mb-8 text-gray-200 drop-shadow-md">
-            Join thousands of citizens working together to build better
-            communities across India.
+          <p className="text-xl mb-8 text-blue-100">
+            Join thousands of responsible citizens making India's cities cleaner, safer, and better for everyone.
           </p>
           <button
             onClick={() => navigate("/login")}
-            className="bg-white text-slate-800 hover:bg-gray-100 font-semibold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center gap-3"
+            className="bg-white text-blue-600 hover:bg-gray-100 font-bold py-4 px-10 rounded-md text-lg transition inline-flex items-center gap-2 shadow-lg"
           >
-            Start Reporting Issues
+            Get Started Now
             <ArrowRight className="w-5 h-5" />
           </button>
         </div>
       </section>
 
-      {/* Footer Credits */}
-      <footer className="bg-gray-900 text-gray-400 text-sm text-center py-4">
-        Innovated & Designed by{" "}
-        <span className="text-white font-semibold">Shivam, IIIT Ranchi</span>
+      {/* Footer */}
+      <footer id="contact" className="bg-slate-900 text-gray-300 pt-16 pb-8">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-green-600 rounded-lg flex items-center justify-center">
+                  <Shield className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-white font-bold text-lg">CityCare</h3>
+                  <p className="text-xs text-gray-400">Citizen Voice Platform</p>
+                </div>
+              </div>
+              <p className="text-sm text-gray-400">
+                Empowering citizens to report and resolve civic issues across India.
+              </p>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold mb-4">Quick Links</h4>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#home" className="hover:text-white transition">Home</a></li>
+                <li><a href="#about" className="hover:text-white transition">About Us</a></li>
+                <li><a href="#issues" className="hover:text-white transition">Report Issue</a></li>
+                <li><a href="#contact" className="hover:text-white transition">Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold mb-4">Resources</h4>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="hover:text-white transition">Help Center</a></li>
+                <li><a href="#" className="hover:text-white transition">FAQs</a></li>
+                <li><a href="#" className="hover:text-white transition">Privacy Policy</a></li>
+                <li><a href="#" className="hover:text-white transition">Terms of Service</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold mb-4">Contact Us</h4>
+              <ul className="space-y-3 text-sm">
+                <li className="flex items-start gap-2">
+                  <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                  <span>1800-XXX-XXXX (Toll Free)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                  <span>support@nagarikawaz.gov.in</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                  <span>Ministry of Urban Affairs<br/>New Delhi, India</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+            <p className="text-gray-400">
+              © 2024 CityCare. A Government of India Initiative.
+            </p>
+            <p className="text-gray-500">
+              Developed by <span className="text-white font-semibold">Shivam Sharma</span>, IIIT Ranchi
+            </p>
+          </div>
+        </div>
       </footer>
     </div>
   );
