@@ -12,7 +12,7 @@ const {
 router.get("/reports", authMiddleware, requireRole("admin"), getAllReports);
 
 router.get(
-  "/dashboard-stats",
+  "/admin/dashboard-stats",
   authMiddleware,
   requireRole("admin"),
   getAdminDashboardStats
