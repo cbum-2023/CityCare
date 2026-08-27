@@ -11,7 +11,13 @@ const adminRoutes = require("./routes/adminRoutes");
 const app = express();
 
 // Middlewares
-app.use(cors());
+app.use(cors({
+  origin: [
+    "https://city-care-chi.vercel.app",   // apna actual Vercel URL yahan daalo
+    "http://localhost:5173"                // local dev ke liye (agar Vite use kar rahe ho, warna 3000)
+  ],
+  credentials: true
+}));
 app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
