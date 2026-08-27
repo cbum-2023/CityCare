@@ -13,8 +13,8 @@ const app = express();
 // Middlewares
 app.use(cors({
   origin: [
-    "https://city-care-chi.vercel.app",   // apna actual Vercel URL yahan daalo
-    "http://localhost:5173"                // local dev ke liye (agar Vite use kar rahe ho, warna 3000)
+    "https://city-care-chi.vercel.app",   
+    "http://localhost:5173"       
   ],
   credentials: true
 }));
