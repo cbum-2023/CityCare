@@ -23,7 +23,7 @@ const Navbar = () => {
   return (
     <nav className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-        {/* Logo and Brand */}
+        
         <Link to="/" className="flex items-center gap-3">
           <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-600 to-emerald-600 flex items-center justify-center shadow-sm">
             <Shield className="w-7 h-7 text-white" aria-hidden="true" />
@@ -34,11 +34,10 @@ const Navbar = () => {
           </div>
         </Link>
 
-        {/* Navigation Links - Center/Right */}
         <div className="flex items-center gap-2">
           {user && (
             <div className="hidden md:flex items-center gap-1 mr-4">
-              {/* User-specific Links */}
+              
               {user?.role === "user" && (
                 <>
                   <Link
@@ -67,7 +66,6 @@ const Navbar = () => {
                 </>
               )}
 
-              {/* Admin-specific Links */}
               {user?.role === "admin" && (
                 <>
                   <Link
@@ -98,7 +96,6 @@ const Navbar = () => {
             </div>
           )}
 
-          {/* User Info Badge (when logged in) */}
           {user && (
             <div className="hidden sm:flex items-center bg-gray-100 rounded-full px-3 py-1.5 mr-2">
               <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
@@ -108,7 +105,6 @@ const Navbar = () => {
             </div>
           )}
 
-          {/* Auth Links */}
           {!user ? (
             <div className="flex items-center gap-2">
               <Link
@@ -135,7 +131,6 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* Mobile Menu Button */}
         <button className="md:hidden p-2 rounded-md hover:bg-gray-100 transition-colors duration-200">
           <svg
             className="w-6 h-6 text-gray-600"

@@ -26,7 +26,6 @@ exports.getAllReports = async (req, res) => {
   }
 };
 
-// PUT update status of any report (admin)
 exports.updateReportStatus = async (req, res) => {
   try {
     const { status } = req.body;
@@ -67,7 +66,6 @@ exports.getAdminDashboardStats = async (req, res) => {
   }
 };
 
-// DELETE any report (admin)
 exports.deleteAnyReport = async (req, res) => {
   try {
     const deleted = await Report.findByIdAndDelete(req.params.id);

@@ -46,7 +46,7 @@ const AdminDashboard = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-gray-100">
       <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
-        {/* Page Header */}
+        
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-14 h-14 bg-gradient-to-br from-purple-600 to-purple-700 rounded-lg flex items-center justify-center shadow-lg">
@@ -62,7 +62,6 @@ const AdminDashboard = () => {
             </div>
           </div>
 
-          {/* Welcome Banner */}
           <div className="bg-gradient-to-r from-purple-600 via-purple-700 to-blue-600 rounded-xl p-6 shadow-lg">
             <div className="flex items-center justify-between">
               <div className="flex-1">
@@ -88,7 +87,6 @@ const AdminDashboard = () => {
           </div>
         </div>
 
-        {/* Stats Cards */}
         {loading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             {[1, 2, 3, 4].map((i) => (
@@ -109,7 +107,7 @@ const AdminDashboard = () => {
         ) : stats ? (
           <>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-              {/* Total Reports Card */}
+              
               <div className="bg-white rounded-xl shadow-md border border-gray-200 hover:shadow-xl transition-all duration-300">
                 <div className="p-6">
                   <div className="flex items-start justify-between mb-4">
@@ -140,7 +138,6 @@ const AdminDashboard = () => {
                 </div>
               </div>
 
-              {/* Pending Reports Card */}
               <div className="bg-white rounded-xl shadow-md border border-gray-200 hover:shadow-xl transition-all duration-300">
                 <div className="p-6">
                   <div className="flex items-start justify-between mb-4">
@@ -171,7 +168,6 @@ const AdminDashboard = () => {
                 </div>
               </div>
 
-              {/* In Progress Reports Card */}
               <div className="bg-white rounded-xl shadow-md border border-gray-200 hover:shadow-xl transition-all duration-300">
                 <div className="p-6">
                   <div className="flex items-start justify-between mb-4">
@@ -202,7 +198,6 @@ const AdminDashboard = () => {
                 </div>
               </div>
 
-              {/* Resolved Reports Card */}
               <div className="bg-white rounded-xl shadow-md border border-gray-200 hover:shadow-xl transition-all duration-300">
                 <div className="p-6">
                   <div className="flex items-start justify-between mb-4">
@@ -234,9 +229,8 @@ const AdminDashboard = () => {
               </div>
             </div>
 
-            {/* Analytics Section */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-              {/* Performance Metrics */}
+              
               <div className="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
                 <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-4">
                   <h3 className="text-lg font-bold text-white flex items-center gap-2">
@@ -295,7 +289,6 @@ const AdminDashboard = () => {
                 </div>
               </div>
 
-              {/* System Health */}
               <div className="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
                 <div className="bg-gradient-to-r from-green-600 to-green-700 px-6 py-4">
                   <h3 className="text-lg font-bold text-white flex items-center gap-2">
@@ -360,7 +353,6 @@ const AdminDashboard = () => {
               </div>
             </div>
 
-            {/* Action Items */}
             <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl border border-orange-200 p-6">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">

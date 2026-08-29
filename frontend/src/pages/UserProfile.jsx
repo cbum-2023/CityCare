@@ -76,7 +76,7 @@ const UserProfile = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-gray-100 py-8 px-4">
       <div className="max-w-5xl mx-auto">
-        {/* Page Header */}
+        
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center shadow-md">
@@ -90,10 +90,10 @@ const UserProfile = () => {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-6">
-          {/* Main Profile Card */}
+          
           <div className="lg:col-span-2">
             <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
-              {/* Card Header */}
+              
               <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-8">
                 <div className="flex items-center gap-4">
                   <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg">
@@ -128,7 +128,6 @@ const UserProfile = () => {
                 </div>
               </div>
 
-              {/* Profile Information */}
               <div className="p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
                   <Award className="w-5 h-5 text-blue-600" />
@@ -136,7 +135,7 @@ const UserProfile = () => {
                 </h3>
                 
                 <div className="space-y-4">
-                  {/* Username */}
+                  
                   <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
                     <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <User className="w-5 h-5 text-blue-600" />
@@ -151,7 +150,6 @@ const UserProfile = () => {
                     </div>
                   </div>
 
-                  {/* Email (if available) */}
                   {profile.email && (
                     <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
                       <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -168,7 +166,6 @@ const UserProfile = () => {
                     </div>
                   )}
 
-                  {/* State */}
                   <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
                     <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <MapPin className="w-5 h-5 text-green-600" />
@@ -183,7 +180,6 @@ const UserProfile = () => {
                     </div>
                   </div>
 
-                  {/* Area */}
                   <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
                     <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Building className="w-5 h-5 text-orange-600" />
@@ -198,7 +194,6 @@ const UserProfile = () => {
                     </div>
                   </div>
 
-                  {/* Account Created (if available) */}
                   {profile.createdAt && (
                     <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
                       <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -220,7 +215,6 @@ const UserProfile = () => {
                   )}
                 </div>
 
-                {/* Verification Status */}
                 <div className="mt-6 bg-gradient-to-r from-green-50 to-emerald-50 border-l-4 border-green-500 rounded-r-lg p-4">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
@@ -240,9 +234,8 @@ const UserProfile = () => {
             </div>
           </div>
 
-          {/* Sidebar - Quick Stats & Info */}
           <div className="lg:col-span-1 space-y-6">
-            {/* Role Information */}
+            
             <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
               <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
                 <Shield className="w-5 h-5 text-blue-600" />
@@ -307,7 +300,6 @@ const UserProfile = () => {
               </div>
             </div>
 
-            {/* Location Info */}
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl border border-blue-200 p-6">
               <h3 className="font-bold text-gray-900 mb-4">Service Area</h3>
               <div className="space-y-3">
@@ -328,7 +320,6 @@ const UserProfile = () => {
               </div>
             </div>
 
-            {/* Security Notice */}
             <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
               <h3 className="font-bold text-gray-900 mb-3">Security & Privacy</h3>
               <p className="text-sm text-gray-600 leading-relaxed">
@@ -338,7 +329,6 @@ const UserProfile = () => {
           </div>
         </div>
 
-        {/* Footer Info */}
         <div className="mt-8 bg-orange-50 border border-orange-200 rounded-xl p-6">
           <div className="flex items-start gap-3">
             <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">

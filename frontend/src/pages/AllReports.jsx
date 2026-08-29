@@ -109,7 +109,7 @@ const AllReports = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-gray-100 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Page Header */}
+        
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-700 rounded-lg flex items-center justify-center shadow-md">
@@ -123,7 +123,6 @@ const AllReports = () => {
             </div>
           </div>
 
-          {/* Admin Badge */}
           <div className="flex items-center gap-2 bg-purple-50 border border-purple-200 rounded-lg px-4 py-2 inline-flex">
             <Shield className="w-4 h-4 text-purple-600" />
             <span className="text-sm font-semibold text-purple-900">
@@ -132,7 +131,6 @@ const AllReports = () => {
           </div>
         </div>
 
-        {/* Filter Section */}
         <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden mb-8">
           <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-4">
             <h2 className="text-lg font-bold text-white flex items-center gap-2">
@@ -174,7 +172,6 @@ const AllReports = () => {
           </div>
         </div>
 
-        {/* Reports Section */}
         {loading ? (
           <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-16 text-center">
             <Loader className="w-12 h-12 text-blue-600 animate-spin mx-auto mb-4" />
@@ -198,7 +195,7 @@ const AllReports = () => {
           </div>
         ) : (
           <>
-            {/* Stats Summary */}
+            
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
               <div className="bg-white rounded-lg border border-gray-200 p-4 shadow-sm">
                 <div className="flex items-center justify-between">
@@ -243,7 +240,6 @@ const AllReports = () => {
               </div>
             </div>
 
-            {/* Reports List */}
             <div className="space-y-6">
               {reports.map((report) => {
                 const statusConfig = getStatusConfig(report.status);
@@ -256,7 +252,7 @@ const AllReports = () => {
                   >
                     <div className="p-6">
                       <div className="flex gap-6">
-                        {/* Report Image */}
+                        
                         {report.imageUrl ? (
                           <div className="flex-shrink-0">
                             <img
@@ -271,9 +267,8 @@ const AllReports = () => {
                           </div>
                         )}
 
-                        {/* Report Details */}
                         <div className="flex-1 min-w-0">
-                          {/* Header */}
+                          
                           <div className="flex items-start justify-between gap-4 mb-3">
                             <div className="flex-1">
                               <div className="flex items-center gap-2 mb-2">
@@ -299,7 +294,6 @@ const AllReports = () => {
                             </div>
                           </div>
 
-                          {/* Metadata Grid */}
                           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-4">
                             <div className="flex items-center gap-2 text-sm">
                               <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -359,7 +353,6 @@ const AllReports = () => {
                       </div>
                     </div>
 
-                    {/* Action Footer */}
                     <div className="bg-gray-50 px-6 py-3 border-t border-gray-200">
                       <div className="flex items-center justify-between">
                         <span className="text-xs text-gray-500">
@@ -378,7 +371,6 @@ const AllReports = () => {
               })}
             </div>
 
-            {/* Results Footer */}
             <div className="mt-8 bg-white rounded-lg border border-gray-200 p-4 text-center">
               <p className="text-sm text-gray-600">
                 Showing <strong>{reports.length}</strong> report{reports.length !== 1 ? "s" : ""}

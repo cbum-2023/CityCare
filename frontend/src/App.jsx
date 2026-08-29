@@ -12,8 +12,6 @@ import UserProfile from "./pages/UserProfile";
 import UpdateReportStatus from "./pages/UpdateReportStatus";
 import AdminDashboard from "./pages/AdminDashboard";
 
-
-
 const App = () => {
   return (
     <Router>

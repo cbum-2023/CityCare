@@ -25,13 +25,13 @@ const Home = () => {
   const { user } = useContext(AuthContext);
 
   if (user) {
-    // redirect to the same profile route used elsewhere (Navbar uses "/profile")
+    
     return <Navigate to="/profile" replace />;
   }
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
-      {/* Top Info Bar */}
+      
       <div className="bg-slate-800 text-gray-300 py-2 px-4 text-sm">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
           <div className="flex items-center gap-4">
@@ -51,9 +51,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Header Navigation removed — using global Navbar component */}
-
-      {/* Hero Section */}
       <section
         id="home"
         className="relative px-4 py-24 md:py-32"
@@ -121,7 +118,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Trust Indicators */}
       <section className="py-8 bg-gray-50 border-y border-gray-200">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70">
@@ -145,7 +141,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Issue Categories */}
       <section id="issues" className="px-4 py-20 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
@@ -208,7 +203,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* How It Works */}
       <section className="px-4 py-20 bg-gradient-to-b from-slate-50 to-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -220,7 +214,7 @@ const Home = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-            {/* Connecting Line */}
+            
             <div className="hidden md:block absolute top-24 left-1/2 transform -translate-x-1/2 w-2/3 h-0.5 bg-gray-300"></div>
             
             {[
@@ -264,7 +258,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Why Choose Us */}
       <section id="about" className="px-4 py-20 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
@@ -305,7 +298,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="px-4 py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -324,7 +316,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Footer */}
       <footer id="contact" className="bg-slate-900 text-gray-300 pt-16 pb-8">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">

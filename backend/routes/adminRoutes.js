@@ -8,7 +8,6 @@ const {
   getAdminDashboardStats
 } = require("../controllers/adminController");
 
-// ✅ Admin can view all reports from their state only
 router.get("/reports", authMiddleware, requireRole("admin"), getAllReports);
 
 router.get(
@@ -18,7 +17,6 @@ router.get(
   getAdminDashboardStats
 );
 
-// ✅ Admin can update status of a report (e.g., to "in-progress", "resolved")
 router.put(
   "/report/:id/status",
   authMiddleware,
@@ -26,13 +24,11 @@ router.put(
   updateReportStatus
 );
 
-// ✅ Admin can delete any report
 router.delete(
   "/report/:id",
   authMiddleware,
   requireRole("admin"),
   deleteAnyReport
 );
-
 
 module.exports = router;

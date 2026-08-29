@@ -17,7 +17,6 @@ exports.createReport = async (req, res) => {
   try {
     const { title, description, category } = req.body;
 
-    // Use filename to avoid Windows backslash issues
    const filename = req.file?.filename || "";
    const imageUrl = filename
      ? `${req.protocol}://${req.get("host")}/uploads/${filename}`.replace(
@@ -29,7 +28,7 @@ exports.createReport = async (req, res) => {
     const report = new Report({
       title,
       description,
-      category, // ✅ add category here
+      category, 
       imageUrl,
       user: req.user.id,
       state: req.user.state,
@@ -46,8 +45,6 @@ exports.createReport = async (req, res) => {
   }
 };
 
-
-// GET all reports submitted by the logged-in user
 exports.getMyReports = async (req, res) => {
   try {
     const reports = await Report.find({ user: req.user.id }).sort({
@@ -61,7 +58,6 @@ exports.getMyReports = async (req, res) => {
   }
 };
 
-// PUT update a report
 exports.updateReport = async (req, res) => {
   try {
     const { title, description } = req.body;
@@ -86,7 +82,6 @@ exports.updateReport = async (req, res) => {
   }
 };
 
-// DELETE a report
 exports.deleteReport = async (req, res) => {
   try {
     const deletedReport = await Report.findOneAndDelete({

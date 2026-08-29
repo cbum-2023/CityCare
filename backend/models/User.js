@@ -9,5 +9,4 @@ const userSchema = new mongoose.Schema({
   area: { type: String },
 });
 
-
 module.exports = mongoose.model("User", userSchema);

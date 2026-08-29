@@ -73,7 +73,7 @@ const UpdateReportStatus = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-gray-100 py-8">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Page Header */}
+        
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-700 rounded-lg flex items-center justify-center shadow-md">
@@ -89,7 +89,6 @@ const UpdateReportStatus = () => {
             </div>
           </div>
 
-          {/* Info Banner */}
           <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
             <div className="flex items-start gap-3">
               <Shield className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
@@ -105,10 +104,10 @@ const UpdateReportStatus = () => {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-6">
-          {/* Main Form */}
+          
           <div className="lg:col-span-2">
             <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
-              {/* Form Header */}
+              
               <div className="bg-gradient-to-r from-purple-600 to-purple-700 px-6 py-4">
                 <h2 className="text-xl font-bold text-white flex items-center gap-2">
                   <FileText className="w-5 h-5" />
@@ -117,9 +116,8 @@ const UpdateReportStatus = () => {
                 <p className="text-purple-100 text-sm">Update issue resolution status</p>
               </div>
 
-              {/* Form Body */}
               <form onSubmit={handleUpdate} className="p-6 space-y-6">
-                {/* Report ID Field */}
+                
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
                     Report ID <span className="text-red-500">*</span>
@@ -143,7 +141,6 @@ const UpdateReportStatus = () => {
                   </p>
                 </div>
 
-                {/* Status Selection Field */}
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-3">
                     New Status <span className="text-red-500">*</span>
@@ -192,7 +189,6 @@ const UpdateReportStatus = () => {
                   </div>
                 </div>
 
-                {/* Submit Button */}
                 <div className="pt-4">
                   <button
                     type="submit"
@@ -211,7 +207,6 @@ const UpdateReportStatus = () => {
               </form>
             </div>
 
-            {/* Success Message */}
             {message && (
               <div className="mt-6 bg-green-50 border-l-4 border-green-500 rounded-r-lg p-4 shadow-md">
                 <div className="flex items-start gap-3">
@@ -231,7 +226,6 @@ const UpdateReportStatus = () => {
               </div>
             )}
 
-            {/* Error Message */}
             {error && (
               <div className="mt-6 bg-red-50 border-l-4 border-red-500 rounded-r-lg p-4 shadow-md">
                 <div className="flex items-start gap-3">
@@ -252,9 +246,8 @@ const UpdateReportStatus = () => {
             )}
           </div>
 
-          {/* Sidebar - Status Guide */}
           <div className="lg:col-span-1 space-y-6">
-            {/* Status Reference Guide */}
+            
             <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
               <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
                 <Info className="w-5 h-5 text-purple-600" />
@@ -288,7 +281,6 @@ const UpdateReportStatus = () => {
               </div>
             </div>
 
-            {/* Best Practices */}
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl border border-blue-200 p-6">
               <h3 className="font-bold text-gray-900 mb-4">Best Practices</h3>
               <ul className="space-y-3 text-sm text-gray-700">
@@ -319,7 +311,6 @@ const UpdateReportStatus = () => {
               </ul>
             </div>
 
-            {/* Quick Stats */}
             <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
               <h3 className="font-bold text-gray-900 mb-4">Quick Actions</h3>
               <div className="space-y-3">

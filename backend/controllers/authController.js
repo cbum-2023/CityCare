@@ -2,7 +2,6 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const User = require("../models/User");
 
-// Token generator
 const generateToken = (user) => {
   return jwt.sign(
     {
@@ -17,7 +16,6 @@ const generateToken = (user) => {
   );
 };
 
-// POST /api/auth/signup
 const signup = async (req, res) => {
   const { username, email, password, role, state, area } = req.body;
 
@@ -28,13 +26,12 @@ const signup = async (req, res) => {
   }
 
   try {
-    // ✅ Check for existing email
+    
     const existingEmail = await User.findOne({ email });
     if (existingEmail) {
       return res.status(409).json({ message: "Email already registered" });
     }
 
-    // ✅ Check for existing username
     const existingUsername = await User.findOne({ username });
     if (existingUsername) {
       return res.status(409).json({ message: "Username already taken" });
@@ -68,9 +65,8 @@ const signup = async (req, res) => {
   }
 };
 
-// POST /api/auth/login
 const login = async (req, res) => {
-  const { username, password, role } = req.body; // ✅ Expect role from frontend
+  const { username, password, role } = req.body; 
 
   try {
     const user = await User.findOne({ username });
@@ -78,7 +74,6 @@ const login = async (req, res) => {
       return res.status(401).json({ message: "Invalid credentials" });
     }
 
-    // ✅ Check if role matches
     if (user.role !== role) {
       return res
         .status(403)

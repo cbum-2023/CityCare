@@ -42,8 +42,7 @@ const Report = () => {
       setDescription("");
       setCategory("");
       setImage(null);
-      
-      // Clear file input
+
       const fileInput = document.getElementById("image");
       if (fileInput) fileInput.value = "";
     } catch (err) {
@@ -67,7 +66,7 @@ const Report = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-gray-100 py-8 px-4">
       <div className="max-w-5xl mx-auto">
-        {/* Page Header */}
+        
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center shadow-md">
@@ -90,18 +89,17 @@ const Report = () => {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-6">
-          {/* Main Form */}
+          
           <div className="lg:col-span-2">
             <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
-              {/* Form Header */}
+              
               <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-4">
                 <h2 className="text-xl font-bold text-white">Issue Details</h2>
                 <p className="text-blue-100 text-sm">Please provide accurate information for faster resolution</p>
               </div>
 
-              {/* Form Body */}
               <form onSubmit={handleSubmit} className="p-6 space-y-6">
-                {/* Title Input */}
+                
                 <div>
                   <label htmlFor="title" className="block text-sm font-semibold text-gray-700 mb-2">
                     Issue Title <span className="text-red-500">*</span>
@@ -123,7 +121,6 @@ const Report = () => {
                   <p className="text-xs text-gray-500 mt-1">Be specific and concise</p>
                 </div>
 
-                {/* Category Selection */}
                 <div>
                   <label htmlFor="category" className="block text-sm font-semibold text-gray-700 mb-2">
                     Issue Category <span className="text-red-500">*</span>
@@ -145,7 +142,6 @@ const Report = () => {
                   <p className="text-xs text-gray-500 mt-1">Select the most appropriate category</p>
                 </div>
 
-                {/* Description */}
                 <div>
                   <label htmlFor="description" className="block text-sm font-semibold text-gray-700 mb-2">
                     Detailed Description <span className="text-red-500">*</span>
@@ -170,7 +166,6 @@ const Report = () => {
                   </div>
                 </div>
 
-                {/* Image Upload */}
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
                     Upload Photo <span className="text-gray-400 text-xs font-normal">(Recommended)</span>
@@ -213,7 +208,6 @@ const Report = () => {
                   )}
                 </div>
 
-                {/* Submit Button */}
                 <div className="pt-4">
                   <button
                     type="submit"
@@ -225,7 +219,6 @@ const Report = () => {
                 </div>
               </form>
 
-              {/* Message Display */}
               {message && (
                 <div className="px-6 pb-6">
                   <div
@@ -259,9 +252,8 @@ const Report = () => {
             </div>
           </div>
 
-          {/* Sidebar - Guidelines */}
           <div className="lg:col-span-1 space-y-6">
-            {/* Reporting Guidelines */}
+            
             <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
@@ -297,7 +289,6 @@ const Report = () => {
               </ul>
             </div>
 
-            {/* What Happens Next */}
             <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl border border-orange-200 p-6">
               <h3 className="font-bold text-gray-900 mb-4">What Happens Next?</h3>
               <div className="space-y-3">
@@ -331,7 +322,6 @@ const Report = () => {
               </div>
             </div>
 
-            {/* Quick Stats */}
             <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
               <h3 className="font-bold text-gray-900 mb-4">Platform Stats</h3>
               <div className="space-y-3">

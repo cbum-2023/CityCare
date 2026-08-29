@@ -1,4 +1,4 @@
-// src/pages/Signup.jsx
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -37,7 +37,7 @@ const Signup = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-gray-100">
-      {/* Header Bar */}
+      
       <div className="bg-slate-800 text-white py-3 px-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -50,7 +50,7 @@ const Signup = () => {
 
       <div className="flex items-center justify-center px-4 py-8 md:py-12">
         <div className="w-full max-w-6xl grid md:grid-cols-2 gap-8 items-start">
-          {/* Left Side - Branding & Info */}
+          
           <div className="hidden md:block space-y-6 sticky top-8">
             <div className="flex items-center gap-3 mb-8">
               <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-emerald-600 rounded-lg flex items-center justify-center shadow-lg">
@@ -140,16 +140,14 @@ const Signup = () => {
             </div>
           </div>
 
-          {/* Right Side - Registration Form */}
           <div className="w-full">
             <div className="bg-white rounded-xl shadow-xl border border-gray-200 overflow-hidden">
-              {/* Form Header */}
+              
               <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-6 text-white">
                 <h2 className="text-2xl font-bold mb-1">Create Account</h2>
                 <p className="text-blue-100 text-sm">Register to start reporting civic issues</p>
               </div>
 
-              {/* Form Body */}
               <form onSubmit={handleSubmit} className="p-8 space-y-5">
                 {error && (
                   <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded-r">
@@ -160,7 +158,6 @@ const Signup = () => {
                   </div>
                 )}
 
-                {/* Username Field */}
                 <div>
                   <label htmlFor="username" className="block text-sm font-semibold text-gray-700 mb-2">
                     Username <span className="text-red-500">*</span>
@@ -182,7 +179,6 @@ const Signup = () => {
                   </div>
                 </div>
 
-                {/* Email Field */}
                 <div>
                   <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
                     Email Address <span className="text-red-500">*</span>
@@ -204,7 +200,6 @@ const Signup = () => {
                   </div>
                 </div>
 
-                {/* Password Field */}
                 <div>
                   <label htmlFor="password" className="block text-sm font-semibold text-gray-700 mb-2">
                     Password <span className="text-red-500">*</span>
@@ -227,7 +222,6 @@ const Signup = () => {
                   <p className="mt-1 text-xs text-gray-500">Minimum 6 characters recommended</p>
                 </div>
 
-                {/* Role Field */}
                 <div>
                   <label htmlFor="role" className="block text-sm font-semibold text-gray-700 mb-2">
                     Account Type <span className="text-red-500">*</span>
@@ -245,7 +239,6 @@ const Signup = () => {
                   </select>
                 </div>
 
-                {/* State Field */}
                 <div>
                   <label htmlFor="state" className="block text-sm font-semibold text-gray-700 mb-2">
                     State <span className="text-red-500">*</span>
@@ -295,7 +288,6 @@ const Signup = () => {
                   </div>
                 </div>
 
-                {/* Area Field */}
                 <div>
                   <label htmlFor="area" className="block text-sm font-semibold text-gray-700 mb-2">
                     Area/District <span className="text-gray-400 text-xs font-normal">(Optional)</span>
@@ -311,7 +303,6 @@ const Signup = () => {
                   />
                 </div>
 
-                {/* Submit Button */}
                 <button
                   type="submit"
                   className="w-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold py-3.5 px-4 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-md hover:shadow-lg mt-6"
@@ -319,7 +310,6 @@ const Signup = () => {
                   Register Account
                 </button>
 
-                {/* Login Link */}
                 <div className="pt-6 border-t border-gray-200">
                   <p className="text-center text-sm text-gray-600">
                     Already have an account?{" "}
@@ -334,7 +324,6 @@ const Signup = () => {
                 </div>
               </form>
 
-              {/* Form Footer */}
               <div className="bg-gray-50 px-8 py-4 border-t border-gray-200">
                 <p className="text-xs text-gray-500 text-center">
                   By registering, you agree to contribute to making your community better and follow our community guidelines.
@@ -342,7 +331,6 @@ const Signup = () => {
               </div>
             </div>
 
-            {/* Mobile Branding */}
             <div className="md:hidden mt-8 text-center space-y-2">
               <div className="flex items-center justify-center gap-2">
                 <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-emerald-600 rounded-lg flex items-center justify-center">

@@ -8,7 +8,7 @@ const Login = () => {
   const [form, setForm] = useState({
     username: "",
     password: "",
-    role: "user", // default role
+    role: "user", 
   });
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -23,13 +23,12 @@ const Login = () => {
     setError("");
 
     try {
-      // ✅ Send role in request body
+      
       const res = await axios.post("/api/auth/login", form);
       const token = res.data.token;
 
-      login(token); // store in context/localStorage
+      login(token); 
 
-      // ✅ Decode JWT to decide redirect
       const decoded = JSON.parse(atob(token.split(".")[1]));
       if (decoded.role === "admin") {
         navigate("/all-reports");
@@ -44,7 +43,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-gray-100">
-      {/* Header Bar */}
+      
       <div className="bg-slate-800 text-white py-3 px-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -57,7 +56,7 @@ const Login = () => {
 
       <div className="flex items-center justify-center px-4 py-12 md:py-20">
         <div className="w-full max-w-6xl grid md:grid-cols-2 gap-8 items-center">
-          {/* Left Side - Branding & Info */}
+          
           <div className="hidden md:block space-y-6">
             <div className="flex items-center gap-3 mb-8">
               <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-emerald-600 rounded-lg flex items-center justify-center shadow-lg">
@@ -119,16 +118,14 @@ const Login = () => {
             </div>
           </div>
 
-          {/* Right Side - Login Form */}
           <div className="w-full max-w-md mx-auto">
             <div className="bg-white rounded-xl shadow-xl border border-gray-200 overflow-hidden">
-              {/* Form Header */}
+              
               <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-6 text-white">
                 <h2 className="text-2xl font-bold mb-1">Sign In</h2>
                 <p className="text-blue-100 text-sm">Access your civic dashboard</p>
               </div>
 
-              {/* Form Body */}
               <form onSubmit={handleSubmit} className="p-8 space-y-6">
                 {error && (
                   <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded-r">
@@ -231,7 +228,6 @@ const Login = () => {
                 </div>
               </form>
 
-              {/* Form Footer */}
               <div className="bg-gray-50 px-8 py-4 border-t border-gray-200">
                 <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
                   <Lock className="w-3 h-3" />
@@ -240,7 +236,6 @@ const Login = () => {
               </div>
             </div>
 
-            {/* Mobile Branding */}
             <div className="md:hidden mt-8 text-center space-y-2">
               <div className="flex items-center justify-center gap-2">
                 <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-emerald-600 rounded-lg flex items-center justify-center">

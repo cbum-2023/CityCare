@@ -104,7 +104,7 @@ const MyReports = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-gray-100 py-8 px-4">
       <div className="max-w-7xl mx-auto">
-        {/* Page Header */}
+        
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center shadow-md">
@@ -117,7 +117,6 @@ const MyReports = () => {
           </div>
         </div>
 
-        {/* Summary Stats */}
         {!loading && reports.length > 0 && (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
             <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
@@ -178,9 +177,8 @@ const MyReports = () => {
           </div>
         )}
 
-        {/* Main Content */}
         <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
-          {/* Content Header */}
+          
           <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-4 flex items-center justify-between">
             <div>
               <h2 className="text-xl font-bold text-white">Your Submissions</h2>
@@ -195,7 +193,6 @@ const MyReports = () => {
             </a>
           </div>
 
-          {/* Content Body */}
           {loading ? (
             <div className="p-16 text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
@@ -235,7 +232,7 @@ const MyReports = () => {
                     className="p-6 hover:bg-gray-50 transition-colors duration-200"
                   >
                     <div className="flex gap-6">
-                      {/* Report Image */}
+                      
                       {report.imageUrl ? (
                         <div className="flex-shrink-0">
                           <img
@@ -250,9 +247,8 @@ const MyReports = () => {
                         </div>
                       )}
 
-                      {/* Report Details */}
                       <div className="flex-1 min-w-0">
-                        {/* Title and Status */}
+                        
                         <div className="flex items-start justify-between gap-4 mb-3">
                           <div className="flex-1">
                             <h3 className="text-xl font-bold text-gray-900 mb-1 flex items-center gap-2">
@@ -273,7 +269,6 @@ const MyReports = () => {
                           </div>
                         </div>
 
-                        {/* Metadata Grid */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4">
                           <div className="flex items-center gap-2 text-sm text-gray-600">
                             <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -330,7 +325,6 @@ const MyReports = () => {
                           )}
                         </div>
 
-                        {/* Report ID */}
                         {report._id && (
                           <div className="mt-4 pt-4 border-t border-gray-200">
                             <div className="flex items-center gap-2 text-xs text-gray-500">
@@ -350,7 +344,6 @@ const MyReports = () => {
           )}
         </div>
 
-        {/* Help Section */}
         {reports.length > 0 && (
           <div className="mt-8 bg-blue-50 border border-blue-200 rounded-xl p-6">
             <div className="flex items-start gap-3">
